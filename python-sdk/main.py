@@ -21,13 +21,11 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 # 序列化和反序列化
 def serialize(data):
-    json_data = json.dumps(data)
-    return json_data
+    return json.dumps(data)
 
 
 def deserialize(json_data):
-    data = json.loads(json_data)
-    return data
+    return json.loads(json_data)
 
 # 切分数据集
 def split_data(path, clients_num):
@@ -340,9 +338,9 @@ def run_sponsor():
     client.finish()
 
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     process_pool = []
-    for i in range(CLIENT_NUM):
+    for _ in range(CLIENT_NUM):
         node_id = 'node_{}'.format(len(process_pool))
         p = Process(target=run_one_node, args=(node_id, ))
         p.start()
